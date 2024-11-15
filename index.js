@@ -21,7 +21,7 @@ const app = express();
 
 
 app.use(cors({
-    origin: 'https://chatsnapp.netlify.app/', // Allow only your frontend
+    origin: 'https://chat-snap-sairams-projects-e8bb1b67.vercel.app/', // Allow only your frontend
     methods: [ 'GET', 'POST' ],
     allowedHeaders: [ 'Content-Type', 'Authorization' ]
 }));
@@ -29,7 +29,7 @@ app.use(cors({
 const httpServer = http.createServer(app);
 const io = socketio(httpServer, {
     cors: {
-        origin: "https://chatsnapp.netlify.app/"
+        origin: "https://chat-snap-sairams-projects-e8bb1b67.vercel.app/"
     }
 });
 
