@@ -19,13 +19,8 @@ let activeUsers = [];
 
 const app = express();
 
-const corsOptions = {
-    origin: "https://chatsnapp.netlify.app",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true, // if you need to include credentials like cookies or authorization headers
-};
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 const httpServer = http.createServer(app);
 const io = socketio(httpServer, {
