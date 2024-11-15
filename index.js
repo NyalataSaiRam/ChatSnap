@@ -16,7 +16,7 @@ let users = [];
 let activeUsers = [];
 
 const corsOptions = {
-    origin: 'https://chatsnapp.netlify.app' // Allowed origins
+    origin: 'https://chatsnapp.netlify.app/' // Allowed origins
 
 };
 
