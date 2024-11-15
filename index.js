@@ -16,17 +16,19 @@ let users = [];
 let activeUsers = [];
 
 const corsOptions = {
-    origin: 'https://chatsnapp.netlify.app/' // Allowed origins
-
+    origin: 'https://chatsnapp.netlify.app', // Allowed origin
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed HTTP methods
+    credentials: true // Include credentials if needed (e.g., cookies)
 };
 
+app.use(cors(corsOptions));
 
 
 const app = express();
 const httpServer = http.createServer(app);
 const io = socketio(httpServer, {
     cors: {
-        origin: "https://chatsnapp.netlify.app/"
+        origin: "https://chatsnapp.netlify.app"
     }
 });
 
@@ -194,7 +196,6 @@ io.on('connection', (socket) => {
 
 });
 
-app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
