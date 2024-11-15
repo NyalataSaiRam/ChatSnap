@@ -15,15 +15,15 @@ const User = require('./models/user.model');
 let users = [];
 let activeUsers = [];
 
-const corsOptions = {
-    origin: 'https://chatsnapp.netlify.app', // Allowed origin
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed HTTP methods
-    credentials: true // Include credentials if needed (e.g., cookies)
-};
+
 
 const app = express();
 
-app.use(cors(corsOptions));
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "https://chatsnapp.netlify.app");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 const httpServer = http.createServer(app);
 const io = socketio(httpServer, {
