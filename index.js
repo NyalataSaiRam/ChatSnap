@@ -16,7 +16,7 @@ let users = [];
 let activeUsers = [];
 
 const corsOptions = {
-    origin: [ 'http://localhost:4200', 'https://yourfrontenddomain.com' ], // Allowed origins
+    origin: [ 'http://localhost:4200', 'https://chatsnapp.netlify.app/' ], // Allowed origins
 
 };
 
@@ -26,7 +26,7 @@ const app = express();
 const httpServer = http.createServer(app);
 const io = socketio(httpServer, {
     cors: {
-        origin: "http://localhost:4200"
+        origin: "https://chatsnapp.netlify.app/"
     }
 });
 
