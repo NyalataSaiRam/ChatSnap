@@ -21,10 +21,10 @@ const corsOptions = {
     credentials: true // Include credentials if needed (e.g., cookies)
 };
 
+const app = express();
+
 app.use(cors(corsOptions));
 
-
-const app = express();
 const httpServer = http.createServer(app);
 const io = socketio(httpServer, {
     cors: {
