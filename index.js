@@ -20,15 +20,8 @@ let activeUsers = [];
 const app = express();
 
 
-// app.use(cors({
-//     origin: 'https://chatsnapp.netlify.app/', // Allow only your frontend
-//     methods: [ 'GET', 'POST' ],
-//     allowedHeaders: [ 'Content-Type', 'Authorization' ]
-// }));
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    next();
-});
+app.use(cors());
+
 
 const httpServer = http.createServer(app);
 const io = socketio(httpServer, {
