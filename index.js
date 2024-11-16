@@ -26,7 +26,7 @@ app.use(cors());
 const httpServer = http.createServer(app);
 const io = socketio(httpServer, {
     cors: {
-        origin: "https://chatsnapp.netlify.app/"
+        origin: "https://chatsnapp.netlify.app"
     }
 });
 
